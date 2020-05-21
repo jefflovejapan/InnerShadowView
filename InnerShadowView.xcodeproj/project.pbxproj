@@ -14,6 +14,7 @@
 		1FC3FBF2247705B60059C085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC3FBF1247705B60059C085 /* Assets.xcassets */; };
 		1FC3FBF5247705B60059C085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC3FBF3247705B60059C085 /* LaunchScreen.storyboard */; };
 		1FC3FC00247705B70059C085 /* InnerShadowViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC3FBFF247705B70059C085 /* InnerShadowViewTests.swift */; };
+		1FC3FC0B247705CE0059C085 /* InnerShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC3FC0A247705CE0059C085 /* InnerShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		1FC3FBFB247705B70059C085 /* InnerShadowViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InnerShadowViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC3FBFF247705B70059C085 /* InnerShadowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowViewTests.swift; sourceTree = "<group>"; };
 		1FC3FC01247705B70059C085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC3FC0A247705CE0059C085 /* InnerShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				1FC3FBE8247705B50059C085 /* AppDelegate.swift */,
+				1FC3FC0A247705CE0059C085 /* InnerShadowView.swift */,
 				1FC3FBEA247705B50059C085 /* SceneDelegate.swift */,
 				1FC3FBEC247705B50059C085 /* ViewController.swift */,
 				1FC3FBEE247705B50059C085 /* Main.storyboard */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC3FBED247705B50059C085 /* ViewController.swift in Sources */,
+				1FC3FC0B247705CE0059C085 /* InnerShadowView.swift in Sources */,
 				1FC3FBE9247705B50059C085 /* AppDelegate.swift in Sources */,
 				1FC3FBEB247705B50059C085 /* SceneDelegate.swift in Sources */,
 			);
