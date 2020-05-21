@@ -46,6 +46,31 @@ extension CGContext {
     }
 }
 
+class ShapeLayerView: UIView {
+    var shapeLayer: CAShapeLayer {
+        return layer as! CAShapeLayer
+    }
+    override class var layerClass: AnyClass {
+        return CAShapeLayer.self
+    }
+
+    override var backgroundColor: UIColor? {
+        get {
+            return shapeLayer.fillColor.flatMap { UIColor(cgColor: $0) }
+        }
+
+        set {
+            shapeLayer.fillColor = newValue?.cgColor
+        }
+    }
+
+    var path: UIBezierPath = UIBezierPath() {
+        didSet {
+            shapeLayer.path = path.cgPath
+        }
+    }
+}
+
 class InnerShadowView: UIView {
     var path: UIBezierPath = UIBezierPath(rect: .zero) {
         didSet {
@@ -63,6 +88,29 @@ class InnerShadowView: UIView {
         didSet {
             setNeedsDisplay()
         }
+    }
+
+    let viewForMask = ShapeLayerView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        addSubview(viewForMask)
+        mask = viewForMask
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        viewForMask.frame = self.bounds
+        viewForMask.path = self.path
     }
 
     override func draw(_ rect: CGRect) {

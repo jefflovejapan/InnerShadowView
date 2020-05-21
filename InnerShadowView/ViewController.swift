@@ -12,10 +12,12 @@ class ViewController: UIViewController {
     let shadowView = InnerShadowView()
     let smallShadow = Shadow(color: .black, opacity: 1, offset: CGSize(width: 10, height: 10), radius: 10)
     let bigShadow = Shadow(color: .black, opacity: 1, offset: CGSize(width: 20, height: 20), radius: 20)
+    let smallHighlight = Shadow(color: .white, opacity: 1, offset: CGSize(width: -10, height: -10), radius: 10)
+    let bigHighlight = Shadow(color: .white, opacity: 1, offset: CGSize(width: -20, height: -20), radius: 20)
 
-    var isShadowBig = false {
+    var areShadowsBig = false {
         didSet {
-            updateShadow(isShadowBig: isShadowBig)
+            updateShadows(areShadowsBig: areShadowsBig)
         }
     }
 
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
         shadowView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         shadowView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         shadowView.backgroundColor = .red
-        updateShadow(isShadowBig: isShadowBig)
+        updateShadows(areShadowsBig: areShadowsBig)
 
         let tgr = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         shadowView.addGestureRecognizer(tgr)
@@ -36,15 +38,17 @@ class ViewController: UIViewController {
 
     @objc private func viewTapped() {
         UIView.animate(withDuration: 1) { [weak self] in
-            self?.isShadowBig.toggle()
+            self?.areShadowsBig.toggle()
         }
     }
 
-    private func updateShadow(isShadowBig: Bool) {
-        if isShadowBig {
+    private func updateShadows(areShadowsBig: Bool) {
+        if areShadowsBig {
             shadowView.shadow = bigShadow
+            shadowView.highlight = bigHighlight
         } else {
             shadowView.shadow = smallShadow
+            shadowView.highlight = smallHighlight
         }
     }
 
